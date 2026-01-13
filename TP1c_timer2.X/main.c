@@ -1,13 +1,7 @@
 #include "configbits.h" // Bits de configuration
 #include <xc.h>         // Definition des registres specifiques au uC
-
-/* Configuration du timer2 avec une période de 1 ms */
-void config_timer2(void) {
-    PR2 = 124;
-    T2CONbits.T2CKPS  = 00;
-    T2CONbits.T2OUTPS = 0b1111;
-    T2CONbits.TMR2ON  = 1;
-}
+#include "leds.h"
+#include "timer2.h"
 
 /* Attente d'environ 125ms */
 void wait125ms(void) {
@@ -21,11 +15,7 @@ void wait125ms(void) {
 
 void main(void) {
     /* Code d'initialisation */
-    TRISB = 0x00;
-    TRISD = 0x00;
-    
-    LATB = 0x00;
-    LATD = 0x00;
+    init_leds();
     config_timer2();
     while(1){
         /* Code a executer dans une boucle infinie */

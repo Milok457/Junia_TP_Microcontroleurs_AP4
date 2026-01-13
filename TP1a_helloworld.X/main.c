@@ -1,10 +1,10 @@
 #include "configbits.h" // Bits de configuration
 #include <xc.h>         // Definition des registres specifiques au uC
+#include "leds.h"
 
 
 void delai_approx(void) {
     /* Code pour le delai d'allumage entre les differentes LEDS */
-    /* Il faut exectuer environ 2 millions de fois une instruction */
     long int i=0;
     while(i<20000)
     {
@@ -13,12 +13,8 @@ void delai_approx(void) {
 }
 
 void main(void) {
-    /* Code d'initialisation */
-    TRISB = 0x00;
-    TRISD = 0x00;
     
-    LATB = 0x00;
-    LATD = 0x00;    
+    init_leds();
     
     while(1){
         /* Code a executer dans une boucle infinie */
