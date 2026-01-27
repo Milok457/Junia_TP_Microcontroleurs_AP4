@@ -2,7 +2,7 @@
 
 #include <xc.h>
 
-/* Initialisation des LEDS en sortie et ï¿½teintes */
+/* Initialisation des LEDS en sortie et éteintes */
 void init_leds(void){
     TRISB = 0x00;
     TRISD = 0x00;
