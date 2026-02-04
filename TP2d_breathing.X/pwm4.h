@@ -12,6 +12,7 @@
 
 void config_pwm4(void);
 void set_pwm4(int);
+void set_pwm4_inv(int);
 
 #ifdef	__cplusplus
 extern "C" {

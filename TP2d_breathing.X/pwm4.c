@@ -7,9 +7,16 @@ void config_pwm4(void) {
 }
 
 void set_pwm4(int valeur_inter){
-    int nbr = valeur_inter;
+    if (valeur_inter < 100)
+    {
+        int nbr = valeur_inter;
     
-    PWM4DCH = nbr*31;
-    PWM4DCL = 0;
-}
+        PWM4DCH = nbr*1.25;
+        PWM4DCL = 0;
+    } else {
+        int nbr = 100-(valeur_inter-100);
 
+        PWM4DCH = nbr*1.25;
+        PWM4DCL = 0;
+    }
+}

@@ -12,9 +12,9 @@ void __interrupt() isr_allume_led (void){
     if(PIE1bits.TMR2IE && PIR1bits.TMR2IF) {
         PIR1bits.TMR2IF = 0;
         nbr_inter++;
-        
+        set_pwm4(nbr_inter);
         if (nbr_inter == 200) {
-            nbr_inter = 0;
+            nbr_inter=0;
         }
     }
 }
